@@ -13,10 +13,6 @@
                 &kp D &kp E &kp F
                 &kp G &kp H &kp I
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>,   /* Encoder 1: Volume */
-                              <&inc_dec_kp PG_UP PG_DN>;         /* Encoder 2: Page up/down */
-        };
-
         bt_layer {
             display-name = "Layer 1";
             bindings = <
