@@ -12,18 +12,16 @@
         kscan = <&kscan0>;
     };
 
-    /* Composite kscan: matrix (9 keys) + direct encoder switches (2 keys) */
     kscan0: kscan0 {
         compatible = "zmk,kscan-composite";
-        rows = <4>;     /* 3 matrix rows + 1 direct row */
+        rows = <4>;
         columns = <3>;
-
         matrix {
             kscan = <&kscan_matrix>;
         };
         direct {
             kscan = <&kscan_direct>;
-            row-offset = <3>;   /* shift encoder sw below matrix keys */
+            row-offset = <3>;
         };
     };
 
@@ -44,11 +42,11 @@
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
         columns = <3>;
-        rows = <4>;     /* 3 matrix rows + 1 for direct keys */
+        rows = <4>;
         map = < RC(0,0) RC(0,1) RC(0,2)
                 RC(1,0) RC(1,1) RC(1,2)
                 RC(2,0) RC(2,1) RC(2,2)
-                RC(3,0) RC(3,1) >;   /* encoder switch 1 = RC(3,0), switch 2 = RC(3,1) */
+                RC(3,0) RC(3,1) >;
     };
 
     encoders {
