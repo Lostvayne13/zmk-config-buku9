@@ -7,6 +7,7 @@
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &matrix_transform0;
         zmk,display = &oled;
+        zmk,studio = &studio0;   // <- add this
     };
 
     kscan0: kscan0 {
@@ -85,4 +86,12 @@
         dc-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
         reset-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
     };
+};
+
+studio0: studio {
+    compatible = "zmk,studio-keyboard";
+    kscan = &kscan0;
+    matrix-transform = &matrix_transform0;
+    display = &oled;
+    encoders = <&enc1 &enc2>;
 };
