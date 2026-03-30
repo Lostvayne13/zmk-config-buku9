@@ -1,5 +1,6 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/pinctrl/nrf-pinctrl.h>
 
 / {
     chosen {
@@ -60,8 +61,22 @@
     };
 };
 
+
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 11)>;
+        };
+    };
+};
+
+
 &spi0 {
+    compatible = "nordic,nrf-spim";
     status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-names = "default";
 
     oled: ssd1306@0 {
         compatible = "solomon,ssd1306";
