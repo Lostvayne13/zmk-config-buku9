@@ -1,0 +1,9 @@
+# Required files for ZMK to recognize the shield
+
+if SHIELD_BUKU9
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "buku9"
+
+endif
