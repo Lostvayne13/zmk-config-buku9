@@ -1,3 +1,6 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/zmk/kscan.h>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -7,6 +10,11 @@
     kscan0: kscan0 {
         compatible = "zmk,gpio-matrix-keypad";
 
+        rows = <3>;
+        columns = <3>;
+
+        diode-direction = "col2row";
+
         input-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
                       <&gpio1 0 GPIO_ACTIVE_LOW>,
                       <&gpio0 22 GPIO_ACTIVE_LOW>;
@@ -14,10 +22,6 @@
         output-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>,
                        <&gpio0 17 GPIO_ACTIVE_HIGH>,
                        <&gpio0 20 GPIO_ACTIVE_HIGH>;
-
-        rows = <3>;
-        columns = <3>;
-        diode-direction = "col2row";
     };
 
     enc_sw: direct_sw {
@@ -57,10 +61,6 @@
         reg = <0x3c>;
         width = <128>;
         height = <64>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;
         status = "okay";
     };
 };
