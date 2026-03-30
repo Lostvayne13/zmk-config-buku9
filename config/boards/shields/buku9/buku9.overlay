@@ -3,6 +3,15 @@
 #include <dt-bindings/pinctrl/nrf-pinctrl.h>
 
 / {
+
+    key_physical_attrs: key_physical_attrs {
+        compatible = "zmk,key-physical-attrs";
+        width = <100>;
+        height = <100>;
+        x = <0>;
+        y = <0>;
+    };
+
     chosen {
         zmk,kscan = &default_scan0;
         zmk,matrix-transform = &default_transform;
