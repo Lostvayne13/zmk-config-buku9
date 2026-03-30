@@ -7,11 +7,11 @@
         zmk,kscan = &default_scan0;
         zmk,matrix-transform = &default_transform;
         zmk,display = &oled;
+        zmk,physical-layout = &physical_layout0;
     };
 
     default_scan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "default_kscan";
         diode-direction = "col2row";
 
         col-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
@@ -30,6 +30,22 @@
         map = <RC(0,0) RC(0,1) RC(0,2)
                RC(1,0) RC(1,1) RC(1,2)
                RC(2,0) RC(2,1) RC(2,2)>;
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Buku9";
+        keys = <
+            &key_physical_attrs 0 0 0 0
+            &key_physical_attrs 1 0 0 0
+            &key_physical_attrs 2 0 0 0
+            &key_physical_attrs 0 1 0 0
+            &key_physical_attrs 1 1 0 0
+            &key_physical_attrs 2 1 0 0
+            &key_physical_attrs 0 2 0 0
+            &key_physical_attrs 1 2 0 0
+            &key_physical_attrs 2 2 0 0
+        >;
     };
 
     encoders {
@@ -61,7 +77,6 @@
     };
 };
 
-
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -70,7 +85,6 @@
         };
     };
 };
-
 
 &spi0 {
     compatible = "nordic,nrf-spim";
