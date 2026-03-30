@@ -3,7 +3,6 @@
         zmk,kscan = &kscan0;
     };
 
-    /* 3x3 matrix for the 9 keys - COL2ROW (matches your diode wiring) */
     kscan0: kscan0 {
         compatible = "zmk,gpio-matrix-keypad";
         input-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,   /* Col 0: P0.06 */
@@ -17,7 +16,6 @@
         diode-direction = "col2row";
     };
 
-    /* Separate direct buttons for encoder push switches (layer change) */
     enc_sw: direct_sw {
         compatible = "zmk,gpio-direct-keypad";
         input-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>,  /* Enc1 SW: P1.15 */
@@ -32,21 +30,20 @@
 
     enc1: encoder_1 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* A: P1.13 */
-        b-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* B: P1.11 */
+        a-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
 
     enc2: encoder_2 {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* A: P0.29 */
-        b-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   /* B: P0.02 */
+        a-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
 
-    /* SPI for OLED – CS tied to GND on hardware */
     &spi0 {
         status = "okay";
     };
@@ -61,8 +58,8 @@
         page-offset = <0>;
         com-invdir;
         com-seq;
-        reset-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;    /* RES: P1.04 */
-        dc-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;      /* DC: P1.06 */
+        reset-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
+        dc-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
         status = "okay";
     };
 };
