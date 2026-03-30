@@ -6,10 +6,7 @@
 
     key_physical_attrs: key_physical_attrs {
         compatible = "zmk,key-physical-attrs";
-        width = <100>;
-        height = <100>;
-        x = <0>;
-        y = <0>;
+        #key-cells = <4>;
     };
 
     chosen {
@@ -36,14 +33,18 @@
         compatible = "zmk,matrix-transform";
         columns = <3>;
         rows = <3>;
-        map = <RC(0,0) RC(0,1) RC(0,2)
-               RC(1,0) RC(1,1) RC(1,2)
-               RC(2,0) RC(2,1) RC(2,2)>;
+
+        map = <
+            RC(0,0) RC(0,1) RC(0,2)
+            RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
+        >;
     };
 
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "Buku9";
+
         keys = <
             &key_physical_attrs 0 0 0 0
             &key_physical_attrs 1 0 0 0
@@ -105,14 +106,16 @@
         compatible = "solomon,ssd1306";
         reg = <0>;
         spi-max-frequency = <8000000>;
+
         width = <128>;
         height = <64>;
+
         segment-offset = <0>;
         page-offset = <0>;
-        com-invdir;
-        com-seq;
+
         dc-gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
         reset-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
+
         status = "okay";
     };
 };
