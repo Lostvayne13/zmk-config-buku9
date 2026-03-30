@@ -11,8 +11,8 @@
         output-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>,
                        <&gpio0 17 GPIO_ACTIVE_HIGH>,
                        <&gpio0 20 GPIO_ACTIVE_HIGH>;
-        row-size = <3>;
-        col-size = <3>;
+        rows = <3>;
+        columns = <3>;
         diode-direction = "col2row";
     };
 
