@@ -1,19 +1,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-    };
-
-    kscan0: kscan0 {
-        compatible = "zmk,gpio-matrix-keypad";
-        input-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
-                      <&gpio1 0 GPIO_ACTIVE_LOW>,
-                      <&gpio0 22 GPIO_ACTIVE_LOW>;
-        output-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>,
-                       <&gpio0 17 GPIO_ACTIVE_HIGH>,
-                       <&gpio0 20 GPIO_ACTIVE_HIGH>;
-        rows = <3>;
-        columns = <3>;
-        diode-direction = "col2row";
+        zmk,display = &oled;
     };
 
     enc_sw: direct_sw {
@@ -42,6 +30,24 @@
         b-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
+    };
+};
+
+&nice_nano {
+    kscan0: kscan0 {
+        compatible = "zmk,gpio-matrix-keypad";
+
+        input-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,
+                      <&gpio1 0 GPIO_ACTIVE_LOW>,
+                      <&gpio0 22 GPIO_ACTIVE_LOW>;
+
+        output-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>,
+                       <&gpio0 17 GPIO_ACTIVE_HIGH>,
+                       <&gpio0 20 GPIO_ACTIVE_HIGH>;
+
+        rows = <3>;
+        columns = <3>;
+        diode-direction = "col2row";
     };
 };
 
