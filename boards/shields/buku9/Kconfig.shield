@@ -1,2 +1,0 @@
-config SHIELD_BUKU9
-    def_bool $(shields_list_contains, buku9)
