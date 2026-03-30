@@ -94,4 +94,5 @@ studio0: studio {
     matrix-transform = &matrix_transform0;
     display = &oled;
     encoders = <&enc1 &enc2>;
+    encoder-buttons = <&enc_sw>;
 };
