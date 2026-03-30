@@ -3,7 +3,7 @@
         zmk,kscan = &kscan0;
     };
 
-    /* 3x3 matrix for the 9 keys - COL2ROW (matches your diode wiring) */
+    /* 3x3 matrix for the 9 keys - COL2ROW */
     kscan0: kscan0 {
         compatible = "zmk,gpio-matrix-keypad";
         input-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>,   /* Col 0: P0.06 */
@@ -14,10 +14,10 @@
                        <&gpio0 20 GPIO_ACTIVE_HIGH>; /* Row 2: P0.20 */
         row-size = <3>;
         col-size = <3>;
-        diode-direction = "col2row";   /* Explicit - important */
+        diode-direction = "col2row";
     };
 
-    /* Separate direct buttons for encoder push switches (for layer changing) */
+    /* Separate direct buttons for encoder push switches */
     enc_sw: direct_sw {
         compatible = "zmk,gpio-direct-keypad";
         input-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>,  /* Enc1 SW: P1.15 */
