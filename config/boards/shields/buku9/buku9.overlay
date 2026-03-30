@@ -7,9 +7,10 @@
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &matrix_transform0;
         zmk,display = &oled;
-        zmk,studio = &studio0;   // <- add this
+        zmk,studio = &studio0;
     };
 
+    /* --- Key Matrix --- */
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
@@ -35,6 +36,7 @@
         >;
     };
 
+    /* --- Encoders --- */
     encoders {
         compatible = "zmk,keymap-sensors";
         sensors = <&enc1 &enc2>;
@@ -54,6 +56,7 @@
         steps = <80>;
     };
 
+    /* --- Encoder Buttons --- */
     enc_sw: encoder_buttons {
         compatible = "zmk,gpio-direct-keypad";
         input-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>,
@@ -61,6 +64,7 @@
     };
 };
 
+/* --- SPI / OLED --- */
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -88,6 +92,7 @@
     };
 };
 
+/* --- Studio Node --- */
 studio0: studio {
     compatible = "zmk,studio-keyboard";
     kscan = &kscan0;
