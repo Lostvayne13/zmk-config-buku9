@@ -1,7 +1,3 @@
- Required files for ZMK to recognize the shield
-
-# No whitespace after the comma or in your keyboard name!
-# Config name will be reused in Kconfig.defconfig
-
-config BUKU9
-    def_bool $(shields_list_contains,buku9)
+config ZMK_KEYBOARD
+    bool
+    default y
