@@ -13,7 +13,9 @@
                 &kp D &kp E &kp F
                 &kp G &kp H &kp I
             >;
-        bt_layer {
+        };
+
+        layer_1 {
             display-name = "Layer 1";
             bindings = <
                 &kp 1 &kp 2 &kp 3
